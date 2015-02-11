@@ -6,6 +6,7 @@ ln -s $DOTFILES_DIR/.zsh $HOME
 ln -s $DOTFILES_DIR/.zshrc $HOME
 ln -s $DOTFILES_DIR/.vim $HOME
 ln -s $DOTFILES_DIR/.vimrc $HOME
+ln -s $DOTFILES_DIR/.gvimrc $HOME
 mkdir $HOME/.vimbackup
 
 #sudo ln -s $HOME/dotfiles/.vim /root
