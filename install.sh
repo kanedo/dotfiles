@@ -11,4 +11,4 @@ mkdir $HOME/.vimbackup
 #sudo mkdir /root/.vimbackup
 
 cd dotfiles
-git submodule init && git submodule update —recursive
+git submodule init && git submodule update -—recursive
