@@ -8,3 +8,7 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 export FPATH=~/.zsh/completion:$FPATH
 autoload -U compinit
 compinit -i
+
+if [[ -f ~/.zshrc_local ]] then
+	source ~/.zshrc_local
+fi
