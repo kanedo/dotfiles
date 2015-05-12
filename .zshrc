@@ -1,6 +1,8 @@
 export ZSH=~/.zsh
 
-# Load all of the config files in ~/oh-my-zsh that end in .zsh
+ #Load all of the config files in ~/oh-my-zsh that end in .zsh
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 for config_file ($ZSH/lib/*.zsh) source $config_file
 
 # Load and run compinit
