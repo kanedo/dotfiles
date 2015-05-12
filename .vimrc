@@ -4,6 +4,20 @@ set nocompatible
 runtime bundle/vim-pathogen/autoload/pathogen.vim
 execute pathogen#infect()
 
+filetype off                  " required
+let mapleader = ","
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+"call vundle#begin('~/some/path/here')
+" let Vundle manage Vundle, required
+Plugin 'gmarik/Vundle.vim'
+if( exists('+python') && v:version > 703)
+  Plugin 'Valloric/YouCompleteMe'
+endif
+" All of your Plugins must be added before the following line
+call vundle#end()
 " Enable syntax highlighting
 syntax on
 filetype plugin indent on
@@ -76,9 +90,10 @@ au BufNewFile,BufRead *.json set ft=javascript
 " make Python follow PEP8 ( http://www.python.org/dev/peps/pep-0008/ )
 au FileType python set softtabstop=4 tabstop=4 shiftwidth=4 textwidth=79
 
+if( exists('+python') && v:version > 703)
 " You Complete Me autocompletion
 let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
-
+endif
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 
@@ -90,3 +105,6 @@ let g:ctrlp_custom_ignore = {
 
 let g:erlangCheckFile = "~/.vim/bundle/vimerl/compiler/erlang_check_file.erl"
 let g:erlangHighlightErrors = 1
+au FocusLost * :wa
+nnoremap <leader>w <C-w>v<C-w>l
+
