@@ -8,18 +8,17 @@ filetype off                  " required
 let mapleader = ","
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
-if exists('g:vundle')
 call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
+Plugin 'christoomey/vim-tmux-navigator'
 if( exists('+python') && v:version > 703)
   Plugin 'Valloric/YouCompleteMe'
 endif
 " All of your Plugins must be added before the following line
 call vundle#end()
-endif
 " Enable syntax highlighting
 syntax on
 filetype plugin indent on
@@ -72,7 +71,8 @@ set nofoldenable
 " Directories for swp files
 set backupdir=~/.vimbackup
 set directory=~/.vimbackup
-
+" Use OSX clipboard per default
+set clipboard=unnamed
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 map <Leader>n :NERDTreeToggle<CR>
@@ -105,8 +105,6 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\.exe$\|\.so$\|\.dll\|\.beam$\|\.DS_Store$'
   \ }
 
-let g:erlangCheckFile = "~/.vim/bundle/vimerl/compiler/erlang_check_file.erl"
-let g:erlangHighlightErrors = 1
 au FocusLost * :wa
 nnoremap <leader>w <C-w>v<C-w>l
 
