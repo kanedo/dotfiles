@@ -15,11 +15,9 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
 
-if( exists('+python') && v:version > 703)
-  Plugin 'Valloric/YouCompleteMe'
-endif
 " All of your Plugins must be added before the following line
 call vundle#end()
+
 " Enable syntax highlighting
 syntax on
 filetype plugin indent on
