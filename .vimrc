@@ -60,6 +60,12 @@ autocmd BufWritePre * :call <SID>StripTrailingWhitespaces()
 set incsearch
 set hlsearch
 
+" Map uppercase Q,W to lowercase q,w commands
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
+
 " Map Ctrl+l to clear highlighted searches
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
@@ -103,7 +109,7 @@ let g:syntastic_check_on_wq = 0
 
 " use <leader>m to run make in a tmux pane
 nmap <leader>m :call VimuxRunCommand("clear; make all")<CR>
-
+nmap <leader>M :call VimuxRunCommand("clear; vassh make")<CR>
 
 " make uses real tabs
 au FileType make set noexpandtab
