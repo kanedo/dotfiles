@@ -16,7 +16,7 @@ Plugin 'scrooloose/syntastic' " Syntax check
 Plugin 'kien/ctrlp.vim' " use Ctrl+P for fuzzy file opening
 Plugin 'tpope/vim-fugitive' " manage git
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf file highlight
-
+Plugin 'benmills/vimux' " open tmux panes from vim
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -88,6 +88,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+
+
+" use <leader>m to run make in a tmux pane
+nmap <leader>m :call VimuxRunCommand("clear; make all")<CR>
+
 
 " make uses real tabs
 au FileType make set noexpandtab
