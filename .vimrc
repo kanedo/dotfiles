@@ -1,9 +1,5 @@
 set nocompatible
 
-" Initialize Pathogen
-runtime bundle/vim-pathogen/autoload/pathogen.vim
-execute pathogen#infect()
-
 filetype off                  " required
 let mapleader = ","
 " set the runtime path to include Vundle and initialize
