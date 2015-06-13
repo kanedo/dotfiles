@@ -9,13 +9,13 @@ call vundle#begin()
 " alternatively, pass a path where Vundle should install plugins
 "call vundle#begin('~/some/path/here')
 " let Vundle manage Vundle, required
-Plugin 'gmarik/Vundle.vim'
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'kien/ctrlp.vim'
-Plugin 'tpope/vim-fugitive'
-Plugin 'tmux-plugins/vim-tmux'
+Plugin 'gmarik/Vundle.vim' " Plugin Manager
+Plugin 'christoomey/vim-tmux-navigator' " Use same shortcuts for changing tmux and vim panes
+Plugin 'scrooloose/nerdtree' " File-Tree manager
+Plugin 'scrooloose/syntastic' " Syntax check
+Plugin 'kien/ctrlp.vim' " use Ctrl+P for fuzzy file opening
+Plugin 'tpope/vim-fugitive' " manage git
+Plugin 'tmux-plugins/vim-tmux' " tmux.conf file highlight
 
 " All of your Plugins must be added before the following line
 call vundle#end()
