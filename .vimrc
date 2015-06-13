@@ -76,8 +76,19 @@ set directory=~/.vimbackup
 set clipboard=unnamed
 " NERDTree configuration
 let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
+" show hidden files in NERDTree
+let NERDTreeShowHidden=1
 map <Leader>n :NERDTreeToggle<CR>
 
+" CtrlP configuration
+let g:ctrlp_dotfiles=1
+let g:ctrlp_working_path_mode = 'ra'
+
+" CtrlP ignore patterns
+let g:ctrlp_custom_ignore = {
+            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
+            \ 'file': '\.exe$\|\.so$'
+            \ }
 
 " Syntastic Configuration
 set statusline+=%#warningmsg#
