@@ -15,6 +15,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'kien/ctrlp.vim'
 Plugin 'tpope/vim-fugitive'
+Plugin 'tmux-plugins/vim-tmux'
 
 " All of your Plugins must be added before the following line
 call vundle#end()
