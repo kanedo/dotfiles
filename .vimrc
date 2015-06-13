@@ -2,6 +2,7 @@ set nocompatible
 
 filetype off                  " required
 let mapleader = ","
+
 " set the runtime path to include Vundle and initialize
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -10,6 +11,10 @@ call vundle#begin()
 " let Vundle manage Vundle, required
 Plugin 'gmarik/Vundle.vim'
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'scrooloose/nerdtree'
+Plugin 'kien/ctrlp.vim'
+Plugin 'tpope/vim-fugitive'
+
 if( exists('+python') && v:version > 703)
   Plugin 'Valloric/YouCompleteMe'
 endif
