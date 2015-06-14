@@ -17,6 +17,7 @@ Plugin 'kien/ctrlp.vim' " use Ctrl+P for fuzzy file opening
 Plugin 'tpope/vim-fugitive' " manage git
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf file highlight
 Plugin 'benmills/vimux' " open tmux panes from vim
+Plugin 'bling/vim-airline' " much prettier statusbar
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -61,10 +62,10 @@ set incsearch
 set hlsearch
 
 " Map uppercase Q,W to lowercase q,w commands
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
+:command! WQ wq
+:command! Wq wq
+:command! W w
+:command! Q q
 
 " Map Ctrl+l to clear highlighted searches
 nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
@@ -111,11 +112,14 @@ let g:syntastic_check_on_wq = 0
 nmap <leader>m :call VimuxRunCommand("clear; make all")<CR>
 nmap <leader>M :call VimuxRunCommand("clear; vassh make")<CR>
 
+" airline configuration
+
+let g:airline_powerline_fonts=0
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+
 " make uses real tabs
 au FileType make set noexpandtab
-
-" Erlang uses 4 spaces
-au FileType erlang set softtabstop=4 tabstop=4 shiftwidth=4
 
 " Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
 au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru}    set ft=ruby
