@@ -18,6 +18,9 @@ Plugin 'tpope/vim-fugitive' " manage git
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf file highlight
 Plugin 'benmills/vimux' " open tmux panes from vim
 Plugin 'bling/vim-airline' " much prettier statusbar
+Plugin 'godlygeek/tabular'
+Plugin 'plasticboy/vim-markdown'
+Plugin 'tpope/vim-surround'
 " All of your Plugins must be added before the following line
 call vundle#end()
 
