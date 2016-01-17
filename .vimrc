@@ -12,7 +12,7 @@ call vundle#begin()
 Plugin 'gmarik/Vundle.vim' " Plugin Manager
 Plugin 'christoomey/vim-tmux-navigator' " Use same shortcuts for changing tmux and vim panes
 Plugin 'scrooloose/nerdtree' " File-Tree manager
-Plugin 'scrooloose/syntastic' " Syntax check
+" Plugin 'scrooloose/syntastic' " Syntax check
 Plugin 'kien/ctrlp.vim' " use Ctrl+P for fuzzy file opening
 Plugin 'tpope/vim-fugitive' " manage git
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf file highlight
@@ -21,6 +21,8 @@ Plugin 'bling/vim-airline' " much prettier statusbar
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-surround'
+Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'vim-scripts/AutoComplPop'
 " All of your Plugins must be added before the following line
 call vundle#end()
 
@@ -101,14 +103,14 @@ let g:ctrlp_custom_ignore = {
             \ }
 
 " Syntastic Configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
 
 
 " use <leader>m to run make in a tmux pane
@@ -147,5 +149,23 @@ let g:ctrlp_custom_ignore = {
   \ }
 
 au FocusLost * :wa
-nnoremap <leader>w <C-w>v<C-w>l
 
+" latexbox
+let g:LatexBox_show_warnings=0
+let g:LatexBox_ignore_warnings=[
+      \ 'Package caption Warning',
+      \ 'Package hyperref Warning',
+      \ ]
+autocmd FileType tex :nmap <Leader>ll \ll
+let g:LatexBox_latexmk_preview_continuously = 1
+let g:LatexBox_latexmk_options = '-pvc'
+let g:LatexBox_viewer = "open -a Skim"
+
+" autocomplete settings
+set completeopt=longest,menuone
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
+  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
+  \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
