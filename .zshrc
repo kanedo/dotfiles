@@ -13,6 +13,14 @@ export FPATH=~/.zsh/completion:$FPATH
 autoload -U compinit
 compinit -i
 
+# Enable Ctrl-x-e to edit command line
+autoload -U edit-command-line
+# # Emacs style
+zle -N edit-command-line
+bindkey '^xe' edit-command-line
+bindkey '^x^e' edit-command-line
+
+
 if [[ -f ~/.zshrc_local ]] then
 	source ~/.zshrc_local
 fi
