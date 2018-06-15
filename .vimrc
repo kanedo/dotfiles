@@ -80,7 +80,11 @@ nnoremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 :au BufWinEnter * let w:m2=matchadd('ColumnMargin', '\%>80v.\+', -1)
 
 " Disable code folding
+set foldmethod=indent
+set foldnestmax=10
 set nofoldenable
+set nofoldenable
+set foldlevel=2
 
 " Directories for swp files
 set backupdir=~/.vimbackup
