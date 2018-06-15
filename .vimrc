@@ -115,8 +115,8 @@ let g:ctrlp_custom_ignore = {
 
 
 " use <leader>m to run make in a tmux pane
-nmap <leader>m :call VimuxRunCommand("clear; make all")<CR>
-nmap <leader>M :call VimuxRunCommand("clear; vassh make")<CR>
+nmap <leader>m :call VimuxRunCommand("")<CR>
+" nmap <leader>M :call VimuxRunCommand("clear; vassh make")<CR>
 
 " airline configuration
 
@@ -170,3 +170,8 @@ inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
 
 inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
   \ '<C-x><C-o><C-n><C-p><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
+
+" split opening
+set splitbelow
+set splitright
