@@ -183,3 +183,5 @@ inoremap <expr> <M-,> pumvisible() ? '<C-n>' :
 " split opening
 set splitbelow
 set splitright
+
+set mouse=a
