@@ -13,7 +13,8 @@ Plugin 'gmarik/Vundle.vim' " Plugin Manager
 Plugin 'christoomey/vim-tmux-navigator' " Use same shortcuts for changing tmux and vim panes
 Plugin 'scrooloose/nerdtree' " File-Tree manager
 " Plugin 'scrooloose/syntastic' " Syntax check
-Plugin 'kien/ctrlp.vim' " use Ctrl+P for fuzzy file opening
+Plugin 'junegunn/fzf'
+Plugin 'junegunn/fzf.vim'
 Plugin 'tpope/vim-fugitive' " manage git
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf file highlight
 Plugin 'benmills/vimux' " open tmux panes from vim
@@ -98,26 +99,9 @@ let NERDTreeIgnore=['\.pyc$', '\.rbc$', '\~$']
 let NERDTreeShowHidden=1
 map <Leader>n :NERDTreeToggle<CR>
 
-" CtrlP configuration
-let g:ctrlp_dotfiles=1
-let g:ctrlp_working_path_mode = 'ra'
-
-" CtrlP ignore patterns
-let g:ctrlp_custom_ignore = {
-            \ 'dir': '\.git$\|node_modules$\|\.hg$\|\.svn$',
-            \ 'file': '\.exe$\|\.so$'
-            \ }
-
-" Syntastic Configuration
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 1
-" let g:syntastic_check_on_open = 1
-" let g:syntastic_check_on_wq = 0
-
+" fzf.vim
+" - remap to CTRL+P
+nnoremap <c-p> :Files<CR>
 
 " use <leader>m to run make in a tmux pane
 nmap <leader>m :call VimuxRunCommand("")<CR>
