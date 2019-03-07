@@ -9,13 +9,11 @@ ln -s $DOTFILES_DIR/.vimrc $HOME
 ln -s $DOTFILES_DIR/.gvimrc $HOME
 ln -s $DOTFILES_DIR/.tmux.conf $HOME
 ln -s $DOTFILES_DIR/.tmux $HOME
+ln -s $DOTFILES_DIR/.global_ignore $HOME
 mkdir $HOME/.vimbackup
-
-#sudo ln -s $HOME/dotfiles/.vim /root
-#sudo ln -s $HOME/dotfiles/.vimrc /root
-#sudo mkdir /root/.vimbackup
 
 cd $DOTFILES_DIR
 git submodule init
 git submodule update --recursive
 
+git config --global core.excludesfile ~/.global_ignore
