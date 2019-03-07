@@ -18,6 +18,7 @@ Plugin 'tpope/vim-fugitive' " manage git
 Plugin 'tmux-plugins/vim-tmux' " tmux.conf file highlight
 Plugin 'benmills/vimux' " open tmux panes from vim
 Plugin 'bling/vim-airline' " much prettier statusbar
+Plugin 'vim-airline/vim-airline-themes'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'tpope/vim-surround'
@@ -127,6 +128,9 @@ nmap <leader>m :call VimuxRunCommand("")<CR>
 let g:airline_powerline_fonts=0
 let g:airline_left_sep=''
 let g:airline_right_sep=''
+let g:airline_solarized_bg='dark'
+" always enable status bar
+set laststatus=2
 
 " make uses real tabs
 au FileType make set noexpandtab
