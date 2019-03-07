@@ -11,3 +11,9 @@ curl https://raw.githubusercontent.com/kanedo/dotfiles/master/install.sh | sh
 ## Vim
 
 run ```git submodule init && git submodule update``` before starting vim
+
+## Dependencies
+
+### fzf and ag
+
+`brew install fzf the_silver_searcher`
