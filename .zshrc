@@ -1,4 +1,8 @@
 export ZSH=~/.zsh
+# Returns whether the given command is executable or aliased.
+_has() {
+  return $( whence $1 >/dev/null )
+}
 
 # print hostname in terminal title
 echo -e "\033]2;$(hostname)\007"
