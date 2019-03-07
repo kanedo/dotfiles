@@ -9,7 +9,7 @@ for config_file ($ZSH/lib/*.zsh) source $config_file
 
 # Load and run compinit
 # add .zsh/completion to fpath for autocompletion
-export FPATH=~/.zsh/completion:$FPATH
+export FPATH=$ZSH/completion:$FPATH
 autoload -U compinit
 compinit -i
 
@@ -20,6 +20,8 @@ zle -N edit-command-line
 bindkey '^xe' edit-command-line
 bindkey '^x^e' edit-command-line
 
+source $ZSH/themes/agnoster.zsh-theme
+source $ZSH/localhistory.zsh
 
 if [[ -f ~/.zshrc_local ]] then
 	source ~/.zshrc_local
