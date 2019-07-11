@@ -27,6 +27,8 @@ bindkey '^x^e' edit-command-line
 source $ZSH/themes/agnoster.zsh-theme
 source $ZSH/localhistory.zsh
 
+export EDITOR=vim
+
 if [[ -f ~/.zshrc_local ]] then
 	source ~/.zshrc_local
 fi
