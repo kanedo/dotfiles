@@ -1,0 +1,7 @@
+add_newline = true
+
+[python]
+disabled = true
+
+[gcloud]
+disabled = true
