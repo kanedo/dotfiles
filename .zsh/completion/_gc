@@ -1,2 +1,0 @@
-#compdef gc
-_git gc=git-commit

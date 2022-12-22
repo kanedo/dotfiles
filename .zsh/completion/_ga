@@ -1,2 +1,0 @@
-#compdef ga
-_git ga=git-add
