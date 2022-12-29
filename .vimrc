@@ -30,10 +30,13 @@ Plug 'prabirshrestha/asyncomplete-lsp.vim'
 Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
+Plug 'morhetz/gruvbox'
 
 " Initialize plugin system
 call plug#end()
 "Below go the Vim scripts for even further configuration
+
+autocmd vimenter * ++nested colorscheme gruvbox
 
 " show line numbers
 set number
@@ -60,3 +63,6 @@ nnoremap <leader>da :LspCodeAction<cr>
 nnoremap <leader>dh :LspHover<cr>
 nnoremap <leader>dd :LspDefinition<cr>
 
+" NERDTree
+let NERDTreeShowHidden=1  "  Always show dot files
+let NERDTreeQuitOnOpen=1
