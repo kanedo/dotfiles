@@ -38,6 +38,7 @@ call plug#end()
 "Below go the Vim scripts for even further configuration
 
 autocmd vimenter * ++nested colorscheme gruvbox
+set background=dark    " Setting dark mode
 
 " show line numbers
 set number
