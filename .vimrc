@@ -31,6 +31,7 @@ Plug 'prabirshrestha/asyncomplete.vim'
 Plug 'prabirshrestha/vim-lsp'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 Plug 'morhetz/gruvbox'
+Plug 'rhysd/vim-grammarous'
 
 " Initialize plugin system
 call plug#end()
@@ -66,3 +67,10 @@ nnoremap <leader>dd :LspDefinition<cr>
 " NERDTree
 let NERDTreeShowHidden=1  "  Always show dot files
 let NERDTreeQuitOnOpen=1
+
+" Use installed lannguagetool
+let g:grammarous#languagetool_cmd = 'languagetool'
+" Grammarous only for markdown files, help files and comments
+let g:grammarous#default_comments_only_filetypes = {
+              \ '*' : 1, 'help' : 0, 'markdown' : 0,
+                          \ }
