@@ -42,6 +42,14 @@ set background=dark    " Setting dark mode
 
 " show line numbers
 set number
+" open new buffers below by default
+set splitbelow
+
+" map uppercased commands to lowercase
+:command WQ wq
+:command Wq wq
+:command W w
+:command Q q
 
 map <C-n> :NERDTreeToggle<CR>
 set mouse=a
