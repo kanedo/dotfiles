@@ -1,9 +1,16 @@
 #!/bin/sh
 DOTFILES_DIR=$HOME/dotfiles
 
+rm -rf $DOTFILES
+
 git clone --recurse-submodules https://github.com/kanedo/dotfiles.git $DOTFILES_DIR
-# Install starship
-curl -sS https://starship.rs/install.sh | sh
+
+if ! command -v starship &> /dev/null
+then
+	# Install starship
+	curl -sS https://starship.rs/install.sh | sh
+fi
+
 
 # Install oh-my-zsh
 rm -rf $HOME/.oh-my-zsh/ $HOME/.zshrc $HOME/.vimrc $HOME/.tmux.conf $HOME/.tmux $HOME/.global_ignore $HOME/.vimbackup
