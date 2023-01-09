@@ -1,7 +1,7 @@
 #!/bin/sh
 DOTFILES_DIR=$HOME/dotfiles
 
-rm -rf $DOTFILES
+rm -rf $DOTFILES_DIR
 
 git clone --recurse-submodules https://github.com/kanedo/dotfiles.git $DOTFILES_DIR
 
