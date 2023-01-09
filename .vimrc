@@ -32,6 +32,7 @@ Plug 'prabirshrestha/vim-lsp'
 Plug 'thomasfaingnaert/vim-lsp-ultisnips'
 Plug 'morhetz/gruvbox'
 Plug 'rhysd/vim-grammarous'
+Plug 'mileszs/ack.vim'
 
 " Initialize plugin system
 call plug#end()
@@ -83,3 +84,10 @@ let g:grammarous#languagetool_cmd = 'languagetool'
 let g:grammarous#default_comments_only_filetypes = {
               \ '*' : 1, 'help' : 0, 'markdown' : 0,
                           \ }
+" Replace :Ack with 'ag' if available
+if executable('ag')
+  let g:ackprg = 'ag --vimgrep'
+endif
+" Don't automatically open first search result when doing :Ack
+cnoreabbrev Ack Ack!
+nnoremap <Leader>a :Ack!<Space>
