@@ -6,7 +6,7 @@ git clone --recurse-submodules https://github.com/kanedo/dotfiles.git $DOTFILES_
 curl -sS https://starship.rs/install.sh | sh
 
 # Install oh-my-zsh
-rm -rf $HOME/.oh-my-zsh/
+rm -rf $HOME/.oh-my-zsh/ $HOME/.zshrc $HOME/.vimrc $HOME/.tmux.conf $HOME/.tmux $HOME/.global_ignore $HOME/.vimbackup
 ln -fs $DOTFILES_DIR/.zshrc $HOME
 ln -fs $DOTFILES_DIR/.vimrc $HOME
 ln -fs $DOTFILES_DIR/.tmux.conf $HOME
