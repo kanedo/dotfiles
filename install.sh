@@ -24,5 +24,7 @@ rm -rf $HOME/.oh-my-zsh/custom/
 ln -fs $DOTFILES_DIR/.oh-my-zsh/custom $HOME/.oh-my-zsh/custom
 mkdir $HOME/.vimbackup
 
+# install tpm
+git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
 
 git config --global core.excludesfile ~/.global_ignore
