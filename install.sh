@@ -4,17 +4,17 @@ DOTFILES_DIR=$HOME/dotfiles
 # check if dependencies are installed
 dependencies_met=1
 
-if ! command fzf 2>&1 /dev/null;
+if ! command fzf --version 2>&1 /dev/null;
 then
 	echo "fzf not found. please install: https://github.com/junegunn/fzf#installation"
 	dependencies_met=0
 fi
-if ! command fd 2>&1 /dev/null;
+if ! command fd  --version 2>&1 /dev/null;
 then
 	echo "fd not found. please install: https://github.com/sharkdp/fd#on-ubuntu"
 	dependencies_met=0
 fi
-if ! command ag 2>&1 /dev/null;
+if ! command ag --version 2>&1 /dev/null;
 then
 	echo "ag not found. please install: https://github.com/ggreer/the_silver_searcher#installing"
 	dependencies_met=0
