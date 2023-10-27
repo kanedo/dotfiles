@@ -5,7 +5,7 @@ Collection of various config files
 ## Installation via curl and install.sh
 
 ```
-curl https://raw.githubusercontent.com/kanedo/dotfiles/master/install.sh | sh
+curl https://raw.githubusercontent.com/kanedo/dotfiles/main/install.sh | sh
 ```
 
 ## Vim
