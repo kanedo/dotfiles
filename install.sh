@@ -20,7 +20,7 @@ then
 	dependencies_met=0
 fi
 
-if [[ "$dependencies_met" != "0" ]];
+if [ "$dependencies_met" != "0" ];
 then
 	exit 1;
 fi
