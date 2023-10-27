@@ -1,6 +1,30 @@
 #!/bin/sh
 DOTFILES_DIR=$HOME/dotfiles
 
+# check if dependencies are installed
+dependencies_met=1
+
+if ! command fzf;
+then
+	echo "fzf not found. please install: https://github.com/junegunn/fzf#installation"
+	dependencies_met=0
+fi
+if ! command fd;
+then
+	echo "fd not found. please install: https://github.com/sharkdp/fd#on-ubuntu"
+	dependencies_met=0
+fi
+if ! command ag;
+then
+	echo "ag not found. please install: https://github.com/ggreer/the_silver_searcher#installing"
+	dependencies_met=0
+fi
+
+if ! $dependencies_met;
+then
+	exit 1;
+fi
+
 rm -rf $DOTFILES_DIR
 
 if ! git clone --recurse-submodules git@github.com:kanedo/dotfiles.git $DOTFILES_DIR;
