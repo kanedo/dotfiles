@@ -3,7 +3,10 @@ DOTFILES_DIR=$HOME/dotfiles
 
 rm -rf $DOTFILES_DIR
 
-git clone --recurse-submodules https://github.com/kanedo/dotfiles.git $DOTFILES_DIR
+if ! git clone --recurse-submodules git@github.com:kanedo/dotfiles.git $DOTFILES_DIR;
+then
+	git clone --recurse-submodules https://github.com/kanedo/dotfiles.git $DOTFILES_DIR
+fi 
 
 if ! command -v starship &> /dev/null
 then
@@ -20,8 +23,6 @@ ln -fs $DOTFILES_DIR/.tmux.conf $HOME
 ln -fs $DOTFILES_DIR/.tmux $HOME
 ln -fs $DOTFILES_DIR/.global_ignore $HOME
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
-rm -rf $HOME/.oh-my-zsh/custom/
-ln -fs $DOTFILES_DIR/.oh-my-zsh/custom $HOME/.oh-my-zsh/custom
 mkdir $HOME/.vimbackup
 
 # install tpm
