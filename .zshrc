@@ -108,6 +108,8 @@ eval "$(starship init zsh)"
 
 alias gs="git status"
 alias duck="du -ch | sort -hr | head"
+alias lt="ls -latr"
+
 export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
