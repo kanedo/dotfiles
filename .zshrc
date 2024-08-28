@@ -73,7 +73,7 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf localhistory)
+plugins=(git fzf localhistory kubectl llm-gitcommit)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -116,4 +116,7 @@ export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 if [[ -e "$HOME/.zshrc_local" ]]; then
 	source "$HOME/.zshrc_local"
 fi
+
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
