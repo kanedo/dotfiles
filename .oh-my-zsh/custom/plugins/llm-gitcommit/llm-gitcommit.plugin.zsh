@@ -10,7 +10,7 @@
 gc-llm() {
     # Function to generate commit message
     generate_commit_message() {
-        git diff --cached |  chatblade -p git -r -o
+        git diff --cached |  chatblade -p git -r -o -e
     }
 
     # Function to read user input compatibly with both Bash and Zsh
