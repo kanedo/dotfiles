@@ -46,11 +46,6 @@ set number
 " open new buffers below by default
 set splitbelow
 
-" map uppercased commands to lowercase
-:command WQ wq
-:command Wq wq
-:command W w
-:command Q q
 
 map <C-n> :NERDTreeToggle<CR>
 set mouse=a
@@ -91,3 +86,6 @@ endif
 " Don't automatically open first search result when doing :Ack
 cnoreabbrev Ack Ack!
 nnoremap <Leader>a :Ack!<Space>
+noremap <Leader>y "*y
+noremap <Leader>p "*p
+nnoremap <silent> <Tab> :bnext<CR>
