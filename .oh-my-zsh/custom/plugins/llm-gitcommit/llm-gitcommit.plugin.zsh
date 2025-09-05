@@ -10,8 +10,15 @@
 gc-llm() {
     # Function to generate commit message
     generate_commit_message() {
-        git diff --cached |  chatblade -p git -r -o -e
-    }
+        git diff --cached | llm "
+Below is a diff of all staged changes, coming from the command:
+
+\`\`\`
+git diff --cached
+\`\`\`
+
+Please generate a concise, commit message for these changes. Follow the conventions for Conventional Commits. Just print the commit message, no extra characters"
+}
 
     # Function to read user input compatibly with both Bash and Zsh
     read_input() {
