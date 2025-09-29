@@ -122,3 +122,5 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+alias filter-np="/Users/gabriel/dotfiles/filter_np.py"
+

@@ -10,7 +10,7 @@
 gc-llm() {
     # Function to generate commit message
     generate_commit_message() {
-        git diff --cached | llm "
+    git diff --cached ':(exclude)uv.lock' | llm "
 Below is a diff of all staged changes, coming from the command:
 
 \`\`\`
