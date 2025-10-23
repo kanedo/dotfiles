@@ -57,10 +57,13 @@ def _collect_related_codes(
 
     def add(values: Iterable[str | Language]) -> None:
         for val in values:
+            raw = val.to_tag() if isinstance(val, Language) else str(val)
             tag = _to_standard_tag(val)
-            if tag and tag not in seen:
-                seen.add(tag)
-                tags.append(tag)
+
+            for candidate in (tag, raw):
+                if candidate and candidate not in seen:
+                    seen.add(candidate)
+                    tags.append(candidate)
 
     add([lang])
 
@@ -140,6 +143,12 @@ def _collect_related_codes(
             code
             for code, replacement in LANGUAGE_REPLACEMENTS.items()
             if replacement == base_language
+        ])
+
+        add([
+            replacement
+            for replacement, canonical in LANGUAGE_REPLACEMENTS.items()
+            if canonical == base_language
         ])
 
         for getter in ((lambda: LANGUAGE_ALPHA3.get(base_language)),
