@@ -73,7 +73,7 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf localhistory kubectl llm-gitcommit langcodes github_comments boulder-info)
+plugins=(git fzf localhistory kubectl llm-gitcommit langcodes github_comments boulder-info parquet-repl)
 
 source $ZSH/oh-my-zsh.sh
 
