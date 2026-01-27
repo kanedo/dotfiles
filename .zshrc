@@ -73,7 +73,7 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf localhistory kubectl llm-gitcommit langcodes github_comments)
+plugins=(git fzf localhistory kubectl llm-gitcommit langcodes github_comments boulder-info)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,6 +109,7 @@ eval "$(starship init zsh)"
 alias gs="git status"
 alias duck="du -ch | sort -hr | head"
 alias lt="ls -latr"
+alias tf="tail -f"
 
 export EDITOR="nvim"
 
@@ -123,4 +124,3 @@ fi
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
 alias filter-np="/Users/gabriel/dotfiles/filter_np.py"
-
