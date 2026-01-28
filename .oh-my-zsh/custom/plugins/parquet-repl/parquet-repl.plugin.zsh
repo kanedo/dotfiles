@@ -28,6 +28,11 @@ parquet-repl() {
     uv run --quiet --with polars --with ipython ipython -i -c "
 import polars as pl
 
+# Disable table truncation
+pl.Config.set_tbl_rows(-1)
+pl.Config.set_tbl_cols(-1)
+pl.Config.set_fmt_str_lengths(1000)
+
 ${var_name} = pl.read_parquet('${abs_path}')
 print(f'Loaded {${var_name}.shape[0]:,} rows x {${var_name}.shape[1]} columns into \"${var_name}\"')
 print()
