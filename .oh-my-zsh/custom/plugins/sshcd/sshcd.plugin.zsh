@@ -9,6 +9,6 @@ sshcd() {
     echo "Usage: sshcd [ssh-opts] destination path" >&2
     return 1
   fi
-  local path=${@[-1]}
-  ssh -t "${@[1,-2]}" "cd ${(q)path} && exec \$SHELL -il"
+  local cwd=${@[-1]}
+  ssh -t "${@[1,-2]}" "cd ${(q)cwd} && exec \$SHELL -il"
 }
