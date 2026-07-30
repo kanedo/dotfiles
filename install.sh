@@ -46,6 +46,11 @@ ln -fs $DOTFILES_DIR/.vimrc $HOME
 ln -fs $DOTFILES_DIR/.tmux.conf $HOME
 ln -fs $DOTFILES_DIR/.tmux $HOME
 ln -fs $DOTFILES_DIR/.global_ignore $HOME
+
+# kitty
+mkdir -p $HOME/.config
+rm -rf $HOME/.config/kitty
+ln -fs $DOTFILES_DIR/.config/kitty $HOME/.config/kitty
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --keep-zshrc
 mkdir $HOME/.vimbackup
 

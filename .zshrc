@@ -1,5 +1,5 @@
 # If you come from bash you might have to change your $PATH.
-export PATH=$HOME/bin:$PATH
+export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
@@ -73,7 +73,7 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf localhistory kubectl llm-gitcommit)
+plugins=(git fzf localhistory kubectl llm-gitcommit langcodes github_comments boulder-info parquet-repl sis-clear-error sshcd)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -109,6 +109,7 @@ eval "$(starship init zsh)"
 alias gs="git status"
 alias duck="du -ch | sort -hr | head"
 alias lt="ls -latr"
+alias tf="tail -f"
 
 export EDITOR="nvim"
 
@@ -122,6 +123,6 @@ fi
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
-
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+alias filter-np="/Users/gabriel/dotfiles/filter_np.py"
