@@ -80,8 +80,12 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git fzf tmux localhistory kubectl llm-gitcommit langcodes github_comments boulder-info parquet-repl sis-clear-error sshcd)
 
-# Start tmux automatically (oh-my-zsh `tmux` plugin)
+# Start tmux automatically (oh-my-zsh `tmux` plugin) on a stable, named
+# session. Equivalent to `tmux attach -t base || tmux new -s base`, instead of
+# the default "attach to the most recent session or create an unnamed one".
 export ZSH_TMUX_AUTOSTART=true
+export ZSH_TMUX_AUTOCONNECT=true
+export ZSH_TMUX_DEFAULT_SESSION_NAME=base
 
 source $ZSH/oh-my-zsh.sh
 
