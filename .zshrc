@@ -1,6 +1,11 @@
 # If you come from bash you might have to change your $PATH.
 export PATH=$HOME/.local/bin:$HOME/bin:/usr/local/bin:$PATH
 
+# Homebrew on Apple Silicon
+if [ -d /opt/homebrew/bin ]; then
+  export PATH="/opt/homebrew/bin:$PATH"
+fi
+
 # Path to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -73,7 +78,10 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fzf localhistory kubectl llm-gitcommit langcodes github_comments boulder-info parquet-repl sis-clear-error sshcd)
+plugins=(git fzf tmux localhistory kubectl llm-gitcommit langcodes github_comments boulder-info parquet-repl sis-clear-error sshcd)
+
+# Start tmux automatically (oh-my-zsh `tmux` plugin)
+export ZSH_TMUX_AUTOSTART=true
 
 source $ZSH/oh-my-zsh.sh
 
@@ -102,7 +110,6 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export ZSH_TMUX_AUTOSTART=true
 
 eval "$(starship init zsh)"
 
@@ -113,7 +120,12 @@ alias tf="tail -f"
 
 export EDITOR="nvim"
 
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+# fzf uses fd for file listing; fd is installed as "fdfind" on Debian/Ubuntu.
+if command -v fd >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+elif command -v fdfind >/dev/null 2>&1; then
+  export FZF_DEFAULT_COMMAND='fdfind --type file --follow --hidden --exclude .git'
+fi
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 if [[ -e "$HOME/.zshrc_local" ]]; then
@@ -122,5 +134,3 @@ fi
 
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
-
-alias filter-np="/Users/gabriel/dotfiles/filter_np.py"
