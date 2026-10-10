@@ -104,7 +104,8 @@ ln -fs "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
 # ---------------------------------------------------------------------------
 if [ ! -d "$HOME/.oh-my-zsh" ]; then
 	info "Installing oh-my-zsh"
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
+	# Clear an inherited $ZSH so the installer uses $HOME/.oh-my-zsh.
+	ZSH= sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended --keep-zshrc
 fi
 
 # ---------------------------------------------------------------------------
