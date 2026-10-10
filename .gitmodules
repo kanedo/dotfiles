@@ -1,9 +1,6 @@
 [submodule ".oh-my-zsh/custom/plugins/localhistory"]
 	path = .oh-my-zsh/custom/plugins/localhistory
 	url = https://github.com/kanedo/localhistory.git
-[submodule ".oh-my-zsh/custom/themes/gruvbox-zsh"]
-	path = .oh-my-zsh/custom/themes/gruvbox-zsh
-	url = https://github.com/sbugzu/gruvbox-zsh.git
 [submodule ".oh-my-zsh/custom/plugins/langcodes"]
 	path = .oh-my-zsh/custom/plugins/langcodes
-	url = git@github.com:kanedo/langcodes-cli.git
+	url = https://github.com/kanedo/langcodes-cli.git
