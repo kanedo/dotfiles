@@ -44,3 +44,17 @@ Vim plugins are managed by
 [vim-plug](https://github.com/junegunn/vim-plug) and are installed
 automatically the first time Vim is launched. Submodules are fetched by the
 installer.
+
+## Neovim
+
+The Neovim configuration lives in `.config/nvim` and is symlinked to
+`~/.config/nvim` by the installer. Plugins are managed by
+[lazy.nvim](https://github.com/folke/lazy.nvim), which bootstraps itself the
+first time Neovim is launched.
+
+Neovim itself is not installed by the installer; install it separately
+(`brew install neovim` on macOS, `sudo apt install neovim` on Debian/Ubuntu).
+Some language servers use [Mason](https://github.com/mason-org/mason.nvim),
+which needs `npm`, `unzip`, and a `python3` able to create virtual
+environments; servers whose prerequisites are missing are skipped
+automatically at startup.

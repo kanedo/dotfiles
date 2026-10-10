@@ -89,7 +89,8 @@ rm -rf "$HOME/.zshrc" \
 	"$HOME/.tmux" \
 	"$HOME/.global_ignore" \
 	"$HOME/.vimbackup" \
-	"$HOME/.config/kitty"
+	"$HOME/.config/kitty" \
+	"$HOME/.config/nvim"
 
 ln -fs "$DOTFILES_DIR/.zshrc" "$HOME/.zshrc"
 ln -fs "$DOTFILES_DIR/.vimrc" "$HOME/.vimrc"
@@ -97,6 +98,7 @@ ln -fs "$DOTFILES_DIR/.tmux.conf" "$HOME/.tmux.conf"
 ln -fs "$DOTFILES_DIR/.tmux" "$HOME/.tmux"
 ln -fs "$DOTFILES_DIR/.global_ignore" "$HOME/.global_ignore"
 ln -fs "$DOTFILES_DIR/.config/kitty" "$HOME/.config/kitty"
+ln -fs "$DOTFILES_DIR/.config/nvim" "$HOME/.config/nvim"
 ln -fs "$DOTFILES_DIR/starship.toml" "$HOME/.config/starship.toml"
 
 # ---------------------------------------------------------------------------
