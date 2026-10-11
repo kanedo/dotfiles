@@ -86,6 +86,10 @@ plugins=(git fzf tmux localhistory kubectl llm-gitcommit langcodes github_commen
 export ZSH_TMUX_AUTOSTART=true
 export ZSH_TMUX_AUTOCONNECT=true
 export ZSH_TMUX_DEFAULT_SESSION_NAME=base
+# Never close the terminal when tmux fails/exits. Without this the shell exits
+# (AUTOQUIT defaults to AUTOSTART) and the kitty window vanishes instantly if
+# tmux cannot attach, which looks like a crash.
+export ZSH_TMUX_AUTOQUIT=false
 
 source $ZSH/oh-my-zsh.sh
 
