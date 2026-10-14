@@ -2,3 +2,5 @@
 .ropeproject
 .aider*
 GEMINI.md
+
+**/.claude/settings.local.json
