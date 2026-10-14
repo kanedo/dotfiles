@@ -31,7 +31,9 @@ import polars as pl
 # Disable table truncation
 pl.Config.set_tbl_rows(-1)
 pl.Config.set_tbl_cols(-1)
-pl.Config.set_fmt_str_lengths(1000)
+pl.Config.set_fmt_str_lengths(100000)
+pl.Config.set_fmt_table_cell_list_len(-1)
+pl.Config.set_tbl_width_chars(500)
 
 ${var_name} = pl.scan_parquet('${abs_path}')
 print(f'Loaded LazyFrame with {len(${var_name}.collect_schema())} columns into \"${var_name}\"')
