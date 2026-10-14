@@ -67,8 +67,9 @@ opt.conceallevel = 0
 -- folder, then a plain ~/Notes directory. When none exists the value stays nil
 -- and obsidian.nvim is skipped entirely (see lua/plugins/obsidian-nvim.lua).
 local function resolve_notes_vault()
+  -- `or ""`: a nil first element would make ipairs stop before any candidate.
   local candidates = {
-    vim.env.OBSIDIAN_VAULT,
+    vim.env.OBSIDIAN_VAULT or "",
     vim.fn.expand("~/Library/Mobile Documents/com~apple~CloudDocs/Notes"),
     vim.fn.expand("~/Notes"),
   }
