@@ -1,0 +1,61 @@
+#!/bin/bash
+# qu: squeue wrapper with a wider job-name column.
+
+set -euo pipefail
+
+prog=$(basename "$0")
+output_format="%.18i %.5P %.110j %.8u %.2t %.7M %R"
+
+show_usage() {
+  cat <<EOF
+Usage: $prog [-u username] [-a] [-r] [-w] [-h] [-- squeue-args...]
+
+Show Slurm jobs (default: your own) with a wide job-name column.
+
+Options:
+  -u username  Show jobs for this user instead of \$USER.
+  -a           Show jobs for all users (overrides -u).
+  -r           Only running jobs.
+  -w           Only waiting jobs (pending, suspended, configuring).
+               -r and -w can be combined.
+  -h, --help   Show this help message.
+
+Anything after -- is passed straight to squeue.
+EOF
+}
+
+user_name="$USER"
+all_users=false
+states=()
+
+# getopts has no long options, so handle --help up front.
+for arg in "$@"; do
+  [[ $arg == -- ]] && break
+  if [[ $arg == --help ]]; then
+    show_usage
+    exit 0
+  fi
+done
+
+while getopts ":u:arwh" opt; do
+  case $opt in
+    u) user_name="$OPTARG" ;;
+    a) all_users=true ;;
+    r) states+=(RUNNING) ;;
+    w) states+=(PENDING SUSPENDED CONFIGURING) ;;
+    h) show_usage; exit 0 ;;
+    :) echo "$prog: option -$OPTARG requires an argument" >&2; show_usage >&2; exit 2 ;;
+    \?) echo "$prog: unknown option -$OPTARG" >&2; show_usage >&2; exit 2 ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+args=(-o "$output_format")
+if ! $all_users; then
+  args+=(-u "$user_name")
+fi
+if (( ${#states[@]} )); then
+  args+=("--states=$(IFS=,; echo "${states[*]}")")
+fi
+
+exec squeue "${args[@]}" "$@"

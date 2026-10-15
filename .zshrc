@@ -79,6 +79,8 @@ ZSH_CUSTOM=$HOME/dotfiles/.oh-my-zsh/custom
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git fzf tmux localhistory kubectl llm-gitcommit langcodes github_comments boulder-info parquet-repl sis-clear-error sshcd)
+# Slurm tooling only on machines that have Slurm.
+(( $+commands[squeue] )) && plugins+=(slurm)
 
 # Start tmux automatically (oh-my-zsh `tmux` plugin) on a stable, named
 # session. Equivalent to `tmux attach -t base || tmux new -s base`, instead of
