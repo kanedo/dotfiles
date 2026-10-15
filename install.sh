@@ -48,6 +48,12 @@ fi
 # ---------------------------------------------------------------------------
 if [ -d "$DOTFILES_DIR/.git" ]; then
 	info "Updating existing dotfiles in $DOTFILES_DIR"
+	# Prefer SSH for an HTTPS checkout once SSH access to GitHub works.
+	if [ "$(git -C "$DOTFILES_DIR" remote get-url origin)" = "$REPO_HTTPS" ] &&
+		GIT_SSH_COMMAND="ssh -o BatchMode=yes" git ls-remote "$REPO_SSH" >/dev/null 2>&1; then
+		info "Switching origin to $REPO_SSH"
+		git -C "$DOTFILES_DIR" remote set-url origin "$REPO_SSH"
+	fi
 	git -C "$DOTFILES_DIR" pull --ff-only ||
 		warn "Could not fast-forward; using existing checkout."
 	git -C "$DOTFILES_DIR" submodule update --init --recursive
